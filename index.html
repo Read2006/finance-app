@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            padding: 12px;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 12px;
+            width: 100%;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #155ec0;
+        }
+
+        .result-box {
+            background: #eef4ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Personal Finance Calculator</h2>
+
+    <label class="label">Enter Your Yearly Income (PKR):</label>
+    <input id="income" type="number" placeholder="Example: 120000" />
+
+    <label class="label">Fixed Costs (Yearly or Auto-calculated):</label>
+
+    <input id="s1" type="number" placeholder="Sister 1 Fee (12000)" />
+    <input id="s2" type="number" placeholder="Sister 2 Fee (20000)" />
+    <input id="rent" type="number" placeholder="Rent per month (1100)" />
+    <input id="bills" type="number" placeholder="Bills per month (200)" />
+    <input id="transport" type="number" placeholder="Transport per month (150)" />
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="result" class="result-box" style="display:none;"></div>
+</div>
+
+
+
+
+<script>
+function calculate() {
+    let income = Number(document.getElementById("income").value);
+
+    // --- Fixed costs ---
+    let s1 = Number(document.getElementById("s1").value) || 12000;
+    let s2 = Number(document.getElementById("s2").value) || 20000;
+    let rent = (Number(document.getElementById("rent").value) || 1100) * 12;
+    let bills = (Number(document.getElementById("bills").value) || 200) * 12;
+    let transport = (Number(document.getElementById("transport").value) || 150) * 12;
+
+    let fixedYearly = s1 + s2 + rent + bills + transport;
+
+    // --- Variable expenses estimated ---
+    let varMonthly = 250 + 30 + 40 + 50 + 20;  
+    let variableYearly = varMonthly * 12;
+
+    let totalExpenses = fixedYearly + variableYearly;
+    let remaining = income - totalExpenses;
+
+    // Investment breakdown
+    let investStocks = remaining * 0.60;
+    let investCrypto = remaining * 0.30;
+    let investEmergency = remaining * 0.10;
+
+    document.getElementById("result").style.display = "block";
+    document.getElementById("result").innerHTML = `
+        <h3>📊 Summary</h3>
+        <p><b>Total Fixed Yearly:</b> PKR ${fixedYearly}</p>
+        <p><b>Total Variable Yearly:</b> PKR ${variableYearly}</p>
+        <p><b>Total Expenses:</b> PKR ${totalExpenses}</p>
+        <p><b>Remaining Savings:</b> PKR ${remaining}</p>
+
+        <h3>💰 Recommended Investments</h3>
+        <p>➡️ <b>Stocks:</b> PKR ${investStocks.toFixed(2)}</p>
+        <p>➡️ <b>Crypto:</b> PKR ${investCrypto.toFixed(2)}</p>
+        <p>➡️ <b>Emergency Fund:</b> PKR ${investEmergency.toFixed(2)}</p>
+
+        <h3>📅 Monthly Breakdown</h3>
+        <p><b>Fixed Monthly:</b> PKR ${(fixedYearly/12).toFixed(2)}</p>
+        <p><b>Variable Monthly:</b> PKR ${(variableYearly/12).toFixed(2)}</p>
+        <p><b>Total Monthly Expenses:</b> PKR ${(totalExpenses/12).toFixed(2)}</p>
+    `;
+}
+</script>
+
+</body>
+</html>
