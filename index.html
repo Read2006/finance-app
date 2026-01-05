@@ -1,79 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Household Finance Calculator — USD / Multi-currency</title>
   <style>
-    :root {
-      --bg: #f6f8fb;
-      --card: #fff;
-      --accent: #1a73e8;
-      --muted: #6b7280;
-    }
-    body {
-      font-family: Inter, "Segoe UI", Roboto, Arial;
-      background: var(--bg);
-      margin: 0;
-      padding: 28px;
-      color: #111;
-    }
-    .wrap { max-width: 920px; margin: 0 auto; }
-    header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-    h1 { font-size: 20px; margin: 0; }
-    .card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 18px;
-      box-shadow: 0 6px 20px rgba(16, 24, 40, 0.06);
-      margin-bottom: 16px;
-    }
-    label {
-      display: block;
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-    input[type="number"], input[type="text"], select {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #dde5f0;
-      font-size: 14px;
-    }
-    .row { display: flex; gap: 12px; }
-    .col { flex: 1; }
-    .small { font-size: 13px; }
-    .btn {
-      background: var(--accent);
-      color: #fff;
-      padding: 10px 14px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .muted { color: var(--muted); font-size: 13px; }
-    .grid { display: grid; grid-template-columns: 1fr 320px; gap: 12px; }
-    .expenses-list { margin-top: 10px; }
-    .expense-item { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
-    .expense-item input { flex: 1; }
-    .remove-btn {
-      background: #ff6b6b;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 6px 8px;
-      cursor: pointer;
-    }
-    .result { margin-top: 12px; }
-    .result h3 { margin: 0 0 8px 0; }
-    .explain { font-size: 13px; color: var(--muted); margin-top: 8px; }
-    .inline { display: inline-block; }
-    footer { font-size: 13px; color: var(--muted); margin-top: 8px; }
-    @media (max-width:880px){
-      .grid { grid-template-columns:1fr; }
-      .row { flex-direction: column; }
-    }
+    :root{--bg:#f6f8fb;--card:#fff;--accent:#1a73e8;--muted:#6b7280}
+    body{font-family:Inter, "Segoe UI", Roboto, Arial; background:var(--bg); margin:0; padding:28px; color:#111}
+    .wrap{max-width:920px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    h1{font-size:20px;margin:0}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(16,24,40,.06);margin-bottom:16px}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input[type="number"], input[type="text"], select{width:100%;padding:10px;border-radius:8px;border:1px solid #dde5f0;font-size:14px}
+    .row{display:flex;gap:12px}
+    .col{flex:1}
+    .small{font-size:13px}
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border:none;border-radius:8px;cursor:pointer}
+    .muted{color:var(--muted);font-size:13px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:12px}
+    .expenses-list{margin-top:10px}
+    .expense-item{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+    .expense-item input{flex:1}
+    .remove-btn{background:#ff6b6b;color:#fff;border:none;border-radius:6px;padding:6px 8px;cursor:pointer}
+    .result{margin-top:12px}
+    .result h3{margin:0 0 8px 0}
+    .explain{font-size:13px;color:var(--muted);margin-top:8px}
+    .inline{display:inline-block}
+    footer{font-size:13px;color:var(--muted);margin-top:8px}
+    @media (max-width:880px){ .grid{grid-template-columns:1fr} .row{flex-direction:column} }
   </style>
 </head>
 <body>
@@ -96,16 +51,16 @@
           <label>Yearly Income (total household)</label>
           <input id="yearlyIncome" type="number" placeholder="Example: 24000" value="24000" />
 
-          <div class="row" style="margin-top:10px">
-            <div class="col">
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <div style="flex:1">
               <label>Household size (total people)</label>
               <input id="householdSize" type="number" value="5" />
             </div>
-            <div class="col">
+            <div style="flex:1">
               <label>Primarily at-home members</label>
               <input id="atHome" type="number" value="4" />
             </div>
-            <div class="col">
+            <div style="flex:1">
               <label>Number of earners</label>
               <input id="earners" type="number" value="2" />
             </div>
@@ -117,92 +72,78 @@
             <div class="muted small">Used to tune investment allocation to beat inflation.</div>
           </div>
 
-          <div class="container">
-            <h2>Personal Finance Calculator</h2>
-            <hr style="margin:14px 0;border:none;border-top:1px solid #eef2ff">
+          <hr style="margin:14px 0;border:none;border-top:1px solid #eef2ff">
 
-            <label class="label">Enter Your Yearly Income (PKR):</label>
-            <input id="income" type="number" placeholder="Example: 120000" />
-
-            <label class="small">Fixed yearly expenses (add any number of items)</label>
-            <div>
-              <div style="display:flex;gap:8px">
-                <input id="fixedName" placeholder="Name (eg. Sister tuition)" />
-                <input id="fixedVal" type="number" placeholder="Yearly amount" />
-                <button class="btn" id="addFixedBtn">Add</button>
-              </div>
-
-              <div class="expenses-list card" id="fixedList" style="margin-top:10px;padding:10px"></div>
-              <div class="muted small" style="margin-top:6px">Default example fixed items will be auto-added when you click Calculate if list is empty.</div>
+          <label class="small">Fixed yearly expenses (add any number of items)</label>
+          <div>
+            <div style="display:flex;gap:8px">
+              <input id="fixedName" placeholder="Name (eg. Sister tuition)" />
+              <input id="fixedVal" type="number" placeholder="Yearly amount" />
+              <button class="btn" id="addFixedBtn">Add</button>
             </div>
-
-            <label class="label">Fixed Costs (Yearly or Auto-calculated):</label>
-            <input id="s1" type="number" placeholder="Sister 1 Fee (12000)" />
-            <input id="s2" type="number" placeholder="Sister 2 Fee (20000)" />
-            <input id="rent" type="number" placeholder="Rent per month (1100)" />
-            <input id="bills" type="number" placeholder="Bills per month (200)" />
-            <input id="transport" type="number" placeholder="Transport per month (150)" />
-
-            <div class="card">
-              <h3 style="margin:0 0 8px 0">Variable expense assumptions (editable)</h3>
-              <div class="row" style="margin-bottom:8px">
-                <div class="col">
-                  <label>Groceries per at-home person / month</label>
-                  <input id="groceriesPerPerson" type="number" value="150" />
-                </div>
-                <div class="col">
-                  <label>Utilities (electricity/water) / month (household)</label>
-                  <input id="utilities" type="number" value="120" />
-                </div>
-              </div>
-
-              <button onclick="calculate()">Calculate</button>
-
-              <div class="row" style="margin-bottom:8px">
-                <div class="col">
-                  <label>Internet / mobile / month (household)</label>
-                  <input id="internet" type="number" value="40" />
-                </div>
-                <div class="col">
-                  <label>Healthcare per person / month</label>
-                  <input id="healthcarePerPerson" type="number" value="30" />
-                </div>
-              </div>
-
-              <div id="result" class="result-box" style="display:none;"></div>
+            <div class="expenses-list card" id="fixedList" style="margin-top:10px;padding:10px">
+              <!-- dynamically populated -->
             </div>
+            <div class="muted small" style="margin-top:6px">Default example fixed items will be auto-added when you click Calculate if list is empty.</div>
+          </div>
 
-            <div class="row">
-              <div class="col">
-                <label>Transport per earner / month</label>
-                <input id="transportPerEarner" type="number" value="80" />
-              </div>
-              <div class="col">
-                <label>Household misc / month (cleaning, supplies)</label>
-                <input id="householdMisc" type="number" value="50" />
-              </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 8px 0">Variable expense assumptions (editable)</h3>
+          <div class="row" style="margin-bottom:8px">
+            <div class="col">
+              <label>Groceries per at-home person / month</label>
+              <input id="groceriesPerPerson" type="number" value="150" />
             </div>
-
-            <div class="explain">
-              These are conservative, realistic starting defaults. They will be multiplied by household counts to produce yearly estimates. Change them if you know exact numbers.
+            <div class="col">
+              <label>Utilities (electricity/water) / month (household)</label>
+              <input id="utilities" type="number" value="120" />
             </div>
           </div>
 
-          <div style="display:flex;gap:10px">
-            <button id="calcBtn" class="btn" style="flex:1;margin-top:10px">Calculate & Recommend</button>
-            <button id="resetBtn" class="btn" style="flex:0;background:#6b7280;margin-top:10px">Reset</button>
+          <div class="row" style="margin-bottom:8px">
+            <div class="col">
+              <label>Internet / mobile / month (household)</label>
+              <input id="internet" type="number" value="40" />
+            </div>
+            <div class="col">
+              <label>Healthcare per person / month</label>
+              <input id="healthcarePerPerson" type="number" value="30" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label>Transport per earner / month</label>
+              <input id="transportPerEarner" type="number" value="80" />
+            </div>
+            <div class="col">
+              <label>Household misc / month (cleaning, supplies)</label>
+              <input id="householdMisc" type="number" value="50" />
+            </div>
+          </div>
+
+          <div class="explain">
+            These are conservative, realistic starting defaults. They will be multiplied by household counts to produce yearly estimates. Change them if you know exact numbers.
           </div>
         </div>
 
-        <div>
-          <div class="card">
-            <h3>Results</h3>
-            <div id="resultsArea" class="result muted">Enter values and click <b>Calculate & Recommend</b>. Results show yearly/monthly, recommended allocation, and notes.</div>
-          </div>
-          <div class="card" id="explainCard" style="display:none">
-            <h3>Recommendation Notes</h3>
-            <div id="notes" class="explain"></div>
-          </div>
+        <div style="display:flex;gap:10px">
+          <button id="calcBtn" class="btn" style="flex:1;margin-top:10px">Calculate & Recommend</button>
+          <button id="resetBtn" class="btn" style="flex:0;background:#6b7280;margin-top:10px">Reset</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>Results</h3>
+          <div id="resultsArea" class="result muted">Enter values and click <b>Calculate & Recommend</b>. Results show yearly/monthly, recommended allocation, and notes.</div>
+        </div>
+
+        <div class="card" id="explainCard" style="display:none">
+          <h3>Recommendation Notes</h3>
+          <div id="notes" class="explain"></div>
         </div>
       </div>
     </div>
@@ -212,11 +153,210 @@
     </footer>
   </div>
 
-  <script>
-    // Your full JS calculation logic goes here, same as in original code
-    (function(){
-      // ...everything from your previous script...
-    })();
-  </script>
+<script>
+(function(){
+  // Helper: currency formatter
+  function fmt(amount){
+    const cur = document.getElementById('currency').value || 'USD';
+    const locales = {USD:'en-US', PKR:'en-PK', EUR:'de-DE'};
+    const symbols = {USD:'USD', PKR:'PKR', EUR:'EUR'};
+    const locale = locales[cur] || 'en-US';
+    return new Intl.NumberFormat(locale, {style:'currency', currency: cur === 'PKR' ? 'PKR' : (cur==='EUR'?'EUR':'USD'), maximumFractionDigits:2}).format(amount);
+  }
+
+  // Default fixed items (example) - yearly amounts in USD
+  const defaultFixed = [
+    {name:'Sister 1 tuition', value:12000},
+    {name:'Sister 2 tuition', value:20000},
+    {name:'Rent (monthly x12)', value:1100*12},
+    {name:'Bills (monthly x12)', value:200*12},
+    {name:'Transport (monthly x12)', value:150*12}
+  ];
+
+  const fixedList = document.getElementById('fixedList');
+  const addFixedBtn = document.getElementById('addFixedBtn');
+
+  function addFixedItem(name,val){
+    const div = document.createElement('div');
+    div.className = 'expense-item';
+    const nameIn = document.createElement('input');
+    nameIn.type='text'; nameIn.value = name || ''; nameIn.placeholder='name';
+    const valIn = document.createElement('input');
+    valIn.type='number'; valIn.value = val || 0; valIn.placeholder='yearly amount';
+    const rem = document.createElement('button');
+    rem.className='remove-btn'; rem.textContent='X';
+    rem.onclick = ()=> { fixedList.removeChild(div); };
+    div.appendChild(nameIn); div.appendChild(valIn); div.appendChild(rem);
+    fixedList.appendChild(div);
+  }
+
+  addFixedBtn.addEventListener('click', ()=>{
+    const n = document.getElementById('fixedName').value.trim();
+    const v = Number(document.getElementById('fixedVal').value) || 0;
+    if(!n){ alert('Please enter name for fixed expense'); return; }
+    addFixedItem(n,v);
+    document.getElementById('fixedName').value=''; document.getElementById('fixedVal').value='';
+  });
+
+  // Populate with defaults only if user hasn't added anything
+  function ensureDefaults(){
+    if(fixedList.children.length === 0){
+      defaultFixed.forEach(it=>addFixedItem(it.name, it.value));
+    }
+  }
+
+  // Reset
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    document.getElementById('yearlyIncome').value = 24000;
+    document.getElementById('householdSize').value = 5;
+    document.getElementById('atHome').value = 4;
+    document.getElementById('earners').value = 2;
+    document.getElementById('inflation').value = 5;
+    document.getElementById('groceriesPerPerson').value = 150;
+    document.getElementById('utilities').value = 120;
+    document.getElementById('internet').value = 40;
+    document.getElementById('healthcarePerPerson').value = 30;
+    document.getElementById('transportPerEarner').value = 80;
+    document.getElementById('householdMisc').value = 50;
+    fixedList.innerHTML='';
+    ensureDefaults();
+    document.getElementById('resultsArea').innerHTML = 'Enter values and click <b>Calculate & Recommend</b>.';
+    document.getElementById('explainCard').style.display='none';
+  });
+
+  // Main calculation logic
+  document.getElementById('calcBtn').addEventListener('click', ()=>{
+    ensureDefaults();
+
+    const income = Number(document.getElementById('yearlyIncome').value) || 0;
+    const householdSize = Math.max(1, Number(document.getElementById('householdSize').value) || 1);
+    const atHome = Math.min(householdSize, Math.max(0, Number(document.getElementById('atHome').value) || 0));
+    const earners = Math.max(1, Number(document.getElementById('earners').value) || 1);
+    const inflation = Math.max(0, Number(document.getElementById('inflation').value) || 0);
+
+    // Gather fixed items
+    const fixedItems = [];
+    for(const child of Array.from(fixedList.children)){
+      const name = child.children[0].value || 'item';
+      const val = Number(child.children[1].value) || 0;
+      fixedItems.push({name,val});
+    }
+    const totalFixed = fixedItems.reduce((s,i)=>s+i.val,0);
+
+    // Variable yearly estimates (based on assumptions)
+    const groceriesPerPerson = Number(document.getElementById('groceriesPerPerson').value) || 150;
+    const utilities = Number(document.getElementById('utilities').value) || 120;
+    const internet = Number(document.getElementById('internet').value) || 40;
+    const healthcarePerPerson = Number(document.getElementById('healthcarePerPerson').value) || 30;
+    const transportPerEarner = Number(document.getElementById('transportPerEarner').value) || 80;
+    const householdMisc = Number(document.getElementById('householdMisc').value) || 50;
+
+    const groceriesYearly = groceriesPerPerson * atHome * 12;
+    const utilitiesYearly = utilities * 12;
+    const internetYearly = internet * 12;
+    const healthcareYearly = healthcarePerPerson * householdSize * 12;
+    const transportYearly = transportPerEarner * earners * 12;
+    const miscYearly = householdMisc * 12;
+
+    const totalVariable = groceriesYearly + utilitiesYearly + internetYearly + healthcareYearly + transportYearly + miscYearly;
+
+    const totalExpenses = totalFixed + totalVariable;
+    const remaining = income - totalExpenses;
+
+    // Investment allocation algorithm (transparent & simple)
+    // Goal: allocate enough to likely beat inflation by a buffer.
+    // Base stock allocation = 50%. We increase stocks if inflation > 3%
+    // crypto is a small high-risk slice; grows slightly with inflation but capped.
+    // emergency fund is remainder (cash/bonds).
+    let stockPct = 50 + Math.round((inflation - 3) * 2); // 2% extra stocks per 1% inflation above 3%
+    let cryptoPct = 10 + Math.round((inflation - 5) * 1); // small adjustment
+    // clamp values
+    if(stockPct < 30) stockPct = 30;
+    if(stockPct > 80) stockPct = 80;
+    if(cryptoPct < 0) cryptoPct = 0;
+    if(cryptoPct > 25) cryptoPct = 25;
+
+    let emergencyPct = 100 - stockPct - cryptoPct;
+    if(emergencyPct < 5){
+      // keep at least 5% emergency, reduce crypto
+      const need = 5 - emergencyPct;
+      cryptoPct = Math.max(0, cryptoPct - need);
+      emergencyPct = 100 - stockPct - cryptoPct;
+    }
+
+    // If remaining <= 0, recommend action: reduce expenses or increase income
+    let investStocks = remaining > 0 ? remaining * (stockPct/100) : 0;
+    let investCrypto = remaining > 0 ? remaining * (cryptoPct/100) : 0;
+    let investEmergency = remaining > 0 ? remaining * (emergencyPct/100) : 0;
+
+    // Format output
+    const resHtml = [];
+    resHtml.push(`<h3>Summary (Currency: ${document.getElementById('currency').value})</h3>`);
+    resHtml.push(`<p><b>Total Yearly Income:</b> ${fmt(income)}</p>`);
+    resHtml.push(`<p><b>Total Fixed Yearly:</b> ${fmt(totalFixed)}</p>`);
+    resHtml.push(`<div style="margin-top:6px"><b>Fixed items:</b><ul>${fixedItems.map(it=>`<li>${it.name}: ${fmt(it.val)}</li>`).join('')}</ul></div>`);
+    resHtml.push(`<p><b>Total Variable Yearly (estimated):</b> ${fmt(totalVariable)}</p>`);
+    resHtml.push(`<div style="margin-top:6px"><b>Variable breakdown (yearly):</b>
+      <ul>
+        <li>Groceries: ${fmt(groceriesYearly)}</li>
+        <li>Utilities: ${fmt(utilitiesYearly)}</li>
+        <li>Internet/mobile: ${fmt(internetYearly)}</li>
+        <li>Healthcare: ${fmt(healthcareYearly)}</li>
+        <li>Transport: ${fmt(transportYearly)}</li>
+        <li>Misc: ${fmt(miscYearly)}</li>
+      </ul></div>`);
+
+    resHtml.push(`<p><b>Total Expenses (yearly):</b> ${fmt(totalExpenses)}</p>`);
+    resHtml.push(`<p><b>Remaining / Savings (yearly):</b> ${fmt(remaining)} ${remaining<=0?'<span style="color:#b91c1c"> — Negative: expenses exceed income</span>':''}</p>`);
+
+    if(remaining > 0){
+      resHtml.push(`<h3>Recommended allocation to beat inflation (based on inflation ${inflation}%)</h3>`);
+      resHtml.push(`<p><b>Stocks:</b> ${stockPct}% → ${fmt(investStocks)}</p>`);
+      resHtml.push(`<p><b>Crypto (high risk):</b> ${cryptoPct}% → ${fmt(investCrypto)}</p>`);
+      resHtml.push(`<p><b>Emergency / Cash / Bonds:</b> ${emergencyPct}% → ${fmt(investEmergency)}</p>`);
+    } else {
+      resHtml.push(`<h3 style="color:#b91c1c">Action required</h3>`);
+      resHtml.push(`<p>Your expenses exceed or match income. Before investing, consider:</p>
+        <ul>
+          <li>Reduce fixed costs (re-negotiate rent, review tuition payments)</li>
+          <li>Trim variable costs (groceries, subscriptions)</li>
+          <li>Increase household income (part-time jobs, freelancing)</li>
+        </ul>`);
+    }
+
+    // Notes / explanation
+    const notes = [];
+    notes.push(`<b>How variable estimates were derived</b>:`);
+    notes.push(`<ul>
+      <li>Groceries per at-home person × number of at-home members × 12</li>
+      <li>Utilities, internet, misc scaled by household monthly values × 12</li>
+      <li>Transport scaled by number of earners × monthly transport</li>
+    </ul>`);
+
+    notes.push(`<b>Investment rationale (honest)</b>:
+      <ul>
+        <li>Stocks historically outperform inflation over long horizons — we keep them as the largest slice (${stockPct}%).</li>
+        <li>Crypto is small (${cryptoPct}%) because it’s high-risk and volatile — it can help outperform but can also lose value quickly.</li>
+        <li>Emergency/cash (${emergencyPct}%) ensures you have liquidity for unexpected costs so you don’t sell investments at a loss.</li>
+      </ul>`);
+
+    notes.push(`<b>Household recommendation for 5 members (1 part-time)</b>:
+      <ul>
+        <li>Keep a 3–6 month emergency fund in cash for essentials (rent, groceries, bills).</li>
+        <li>Prioritize paying necessary fixed costs (tuition, rent). Reduce discretionary spending where possible.</li>
+        <li>If you cannot save (remaining ≤ 0), postpone investing until you create a positive buffer.</li>
+      </ul>`);
+
+    // Render results and notes
+    document.getElementById('resultsArea').innerHTML = resHtml.join('');
+    document.getElementById('notes').innerHTML = notes.join('');
+    document.getElementById('explainCard').style.display = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // Initialize
+  ensureDefaults();
+})();
+</script>
 </body>
 </html>
