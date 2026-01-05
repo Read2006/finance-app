@@ -1,229 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Household Finance Calculator — USD / Multi-currency</title>
-
-<style>
-:root {
-  --bg: #f0f4f8;
-  --card: #ffffffcc;
-  --accent: #2563eb;
-  --accent-dark: #1e40af;
-  --danger: #ef4444;
-  --text: #0f172a;
-  --muted: #64748b;
-  --border: rgba(15,23,42,0.1);
-}
-
-* { box-sizing: border-box; }
-
-body {
-  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-  background: var(--bg);
-  margin: 0;
-  padding: 28px;
-  color: var(--text);
-}
-
-.wrap {
-  max-width: 920px;
-  margin: auto;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 18px;
-}
-
-h1 {
-  font-size: 22px;
-  margin: 0;
-}
-
-.card {
-  background: var(--card);
-  border-radius: 12px;
-  padding: 18px;
-  box-shadow: 0 6px 20px rgba(16,24,40,.06);
-  border: 1px solid var(--border);
-  margin-bottom: 16px;
-}
-
-label {
-  display: block;
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-
-input, select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  font-size: 14px;
-  transition: all 0.2s ease;
-}
-
-input:focus, select:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
-  outline: none;
-}
-
-.row { display: flex; gap: 12px; }
-.col { flex: 1; }
-
-.btn {
-  background: var(--accent);
-  color: #fff;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s ease;
-}
-
-.btn:hover {
-  background: var(--accent-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(37,99,235,0.3);
-}
-
-.remove-btn {
-  background: var(--danger);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 8px;
-  cursor: pointer;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 12px;
-}
-
-.expense-item { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
-
-.result-box, #resultsArea {
-  background: #eef4ff;
-  padding: 16px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-}
-
-.explain {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-footer {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 8px;
-}
-
-@media (max-width:880px){ 
-  .grid{grid-template-columns:1fr} 
-  .row{flex-direction:column} 
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Household Finance Calculator — USD / Multi-currency</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #fff;
+      --accent: #1a73e8;
+      --muted: #6b7280;
+    }
+    body {
+      font-family: Inter, "Segoe UI", Roboto, Arial;
+      background: var(--bg);
+      margin: 0;
+      padding: 28px;
+      color: #111;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; }
+    header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+    h1 { font-size: 20px; margin: 0; }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 6px 20px rgba(16, 24, 40, 0.06);
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    input[type="number"], input[type="text"], select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #dde5f0;
+      font-size: 14px;
+    }
+    .row { display: flex; gap: 12px; }
+    .col { flex: 1; }
+    .small { font-size: 13px; }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .muted { color: var(--muted); font-size: 13px; }
+    .grid { display: grid; grid-template-columns: 1fr 320px; gap: 12px; }
+    .expenses-list { margin-top: 10px; }
+    .expense-item { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+    .expense-item input { flex: 1; }
+    .remove-btn {
+      background: #ff6b6b;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 8px;
+      cursor: pointer;
+    }
+    .result { margin-top: 12px; }
+    .result h3 { margin: 0 0 8px 0; }
+    .explain { font-size: 13px; color: var(--muted); margin-top: 8px; }
+    .inline { display: inline-block; }
+    footer { font-size: 13px; color: var(--muted); margin-top: 8px; }
+    @media (max-width:880px){
+      .grid { grid-template-columns:1fr; }
+      .row { flex-direction: column; }
+    }
+  </style>
 </head>
-
 <body>
-<div class="wrap">
-<header>
-  <h1>Household Finance Calculator</h1>
-  <div>
-    <label class="small">Currency</label>
-    <select id="currency">
-      <option value="USD" selected>USD ($)</option>
-      <option value="PKR">PKR (₨)</option>
-      <option value="EUR">EUR (€)</option>
-    </select>
+  <div class="wrap">
+    <header>
+      <h1>Household Finance Calculator</h1>
+      <div>
+        <label class="small">Currency</label>
+        <select id="currency">
+          <option value="USD" selected>USD ( $ )</option>
+          <option value="PKR">PKR ( ₨ )</option>
+          <option value="EUR">EUR ( € )</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div>
+        <div class="card">
+          <label>Yearly Income (total household)</label>
+          <input id="yearlyIncome" type="number" placeholder="Example: 24000" value="24000" />
+
+          <div class="row" style="margin-top:10px">
+            <div class="col">
+              <label>Household size (total people)</label>
+              <input id="householdSize" type="number" value="5" />
+            </div>
+            <div class="col">
+              <label>Primarily at-home members</label>
+              <input id="atHome" type="number" value="4" />
+            </div>
+            <div class="col">
+              <label>Number of earners</label>
+              <input id="earners" type="number" value="2" />
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <label>Expected inflation % (your estimate)</label>
+            <input id="inflation" type="number" value="5" />
+            <div class="muted small">Used to tune investment allocation to beat inflation.</div>
+          </div>
+
+          <div class="container">
+            <h2>Personal Finance Calculator</h2>
+            <hr style="margin:14px 0;border:none;border-top:1px solid #eef2ff">
+
+            <label class="label">Enter Your Yearly Income (PKR):</label>
+            <input id="income" type="number" placeholder="Example: 120000" />
+
+            <label class="small">Fixed yearly expenses (add any number of items)</label>
+            <div>
+              <div style="display:flex;gap:8px">
+                <input id="fixedName" placeholder="Name (eg. Sister tuition)" />
+                <input id="fixedVal" type="number" placeholder="Yearly amount" />
+                <button class="btn" id="addFixedBtn">Add</button>
+              </div>
+
+              <div class="expenses-list card" id="fixedList" style="margin-top:10px;padding:10px"></div>
+              <div class="muted small" style="margin-top:6px">Default example fixed items will be auto-added when you click Calculate if list is empty.</div>
+            </div>
+
+            <label class="label">Fixed Costs (Yearly or Auto-calculated):</label>
+            <input id="s1" type="number" placeholder="Sister 1 Fee (12000)" />
+            <input id="s2" type="number" placeholder="Sister 2 Fee (20000)" />
+            <input id="rent" type="number" placeholder="Rent per month (1100)" />
+            <input id="bills" type="number" placeholder="Bills per month (200)" />
+            <input id="transport" type="number" placeholder="Transport per month (150)" />
+
+            <div class="card">
+              <h3 style="margin:0 0 8px 0">Variable expense assumptions (editable)</h3>
+              <div class="row" style="margin-bottom:8px">
+                <div class="col">
+                  <label>Groceries per at-home person / month</label>
+                  <input id="groceriesPerPerson" type="number" value="150" />
+                </div>
+                <div class="col">
+                  <label>Utilities (electricity/water) / month (household)</label>
+                  <input id="utilities" type="number" value="120" />
+                </div>
+              </div>
+
+              <button onclick="calculate()">Calculate</button>
+
+              <div class="row" style="margin-bottom:8px">
+                <div class="col">
+                  <label>Internet / mobile / month (household)</label>
+                  <input id="internet" type="number" value="40" />
+                </div>
+                <div class="col">
+                  <label>Healthcare per person / month</label>
+                  <input id="healthcarePerPerson" type="number" value="30" />
+                </div>
+              </div>
+
+              <div id="result" class="result-box" style="display:none;"></div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label>Transport per earner / month</label>
+                <input id="transportPerEarner" type="number" value="80" />
+              </div>
+              <div class="col">
+                <label>Household misc / month (cleaning, supplies)</label>
+                <input id="householdMisc" type="number" value="50" />
+              </div>
+            </div>
+
+            <div class="explain">
+              These are conservative, realistic starting defaults. They will be multiplied by household counts to produce yearly estimates. Change them if you know exact numbers.
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px">
+            <button id="calcBtn" class="btn" style="flex:1;margin-top:10px">Calculate & Recommend</button>
+            <button id="resetBtn" class="btn" style="flex:0;background:#6b7280;margin-top:10px">Reset</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <h3>Results</h3>
+            <div id="resultsArea" class="result muted">Enter values and click <b>Calculate & Recommend</b>. Results show yearly/monthly, recommended allocation, and notes.</div>
+          </div>
+          <div class="card" id="explainCard" style="display:none">
+            <h3>Recommendation Notes</h3>
+            <div id="notes" class="explain"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Tip: After you edit any fixed items or assumptions, click Calculate again. You can share the Vercel link with family and they can edit numbers for their own household.
+    </footer>
   </div>
-</header>
 
-<div class="grid">
-  <div>
-    <!-- Income & Household -->
-    <div class="card">
-      <label>Yearly Income (total household)</label>
-      <input id="yearlyIncome" type="number" value="24000" />
-      <div class="row" style="margin-top:10px">
-        <div class="col"><label>Household size</label><input id="householdSize" type="number" value="5" /></div>
-        <div class="col"><label>At-home members</label><input id="atHome" type="number" value="4" /></div>
-        <div class="col"><label>Number of earners</label><input id="earners" type="number" value="2" /></div>
-      </div>
-      <div style="margin-top:10px"><label>Expected inflation %</label><input id="inflation" type="number" value="5" /></div>
-    </div>
-
-    <!-- Fixed expenses -->
-    <div class="card">
-      <label>Add Fixed Expense</label>
-      <div class="row">
-        <input id="fixedName" placeholder="Name (e.g., tuition)" />
-        <input id="fixedVal" type="number" placeholder="Yearly amount" />
-        <button class="btn" id="addFixedBtn">Add</button>
-      </div>
-      <div class="expenses-list card" id="fixedList" style="margin-top:10px;padding:10px"></div>
-      <div class="muted small" style="margin-top:6px">Default fixed items will auto-add if list is empty.</div>
-    </div>
-
-    <!-- Variable expenses -->
-    <div class="card">
-      <h3>Variable expense assumptions</h3>
-      <div class="row" style="margin-bottom:8px">
-        <div class="col"><label>Groceries per at-home person / month</label><input id="groceriesPerPerson" type="number" value="150" /></div>
-        <div class="col"><label>Utilities / month</label><input id="utilities" type="number" value="120" /></div>
-      </div>
-      <div class="row" style="margin-bottom:8px">
-        <div class="col"><label>Internet / month</label><input id="internet" type="number" value="40" /></div>
-        <div class="col"><label>Healthcare per person / month</label><input id="healthcarePerPerson" type="number" value="30" /></div>
-      </div>
-      <div class="row">
-        <div class="col"><label>Transport per earner / month</label><input id="transportPerEarner" type="number" value="80" /></div>
-        <div class="col"><label>Household misc / month</label><input id="householdMisc" type="number" value="50" /></div>
-      </div>
-      <div class="explain">Default estimates; you can change them.</div>
-    </div>
-
-    <div style="display:flex;gap:10px">
-      <button id="calcBtn" class="btn" style="flex:1;margin-top:10px">Calculate & Recommend</button>
-      <button id="resetBtn" class="btn" style="flex:0;background:#6b7280;margin-top:10px">Reset</button>
-    </div>
-
-  </div>
-
-  <!-- Results -->
-  <div>
-    <div class="card">
-      <h3>Results</h3>
-      <div id="resultsArea" class="result muted">Enter values and click <b>Calculate & Recommend</b>.</div>
-    </div>
-    <div class="card" id="explainCard" style="display:none">
-      <h3>Recommendation Notes</h3>
-      <div id="notes" class="explain"></div>
-    </div>
-  </div>
-
-</div>
-
-<footer>
-Tip: After you edit any fixed items or assumptions, click Calculate again. Share the link with family; they can edit for their household.
-</footer>
-
-<script>
-// ==== ORIGINAL LOGIC UNTOUCHED ====
-// Paste all your JS logic here exactly as it was
-</script>
-
+  <script>
+    // Your full JS calculation logic goes here, same as in original code
+    (function(){
+      // ...everything from your previous script...
+    })();
+  </script>
 </body>
 </html>
